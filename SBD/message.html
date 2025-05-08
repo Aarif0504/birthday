@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For You 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 14px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+    }
+
+    .message-box {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 900px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+      white-space: pre-wrap;
+      line-height: 1.4;
+      position: relative;
+    }
+
+    #typed-text::after {
+      content: '|';
+      animation: blink 100s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+
+    #click-text {
+      display: none;
+      margin-top: 15px;
+      font-size: 13px;
+      color: #00ffd5;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    #click-text:hover {
+      color: #ff91f0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Audio element for background music -->
+  <audio id="bg-audio" autoplay>
+    <source src="voice.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Message box with typing effect -->
+  <div class="message-box">
+    <div id="typed-text"></div>
+    <small id="click-text" onclick="goToBirthday()"> Whistle </small>
+  </div>
+
+  <script>
+    const message = `Happiest Birthday to the one who unknowingly became my favorite person😌😜.
+
+Unknowingly kaiku katho mein thumarse etta close hotum karko asal katho asal expect karnani.
+Actually bolte naa sabar sey rhaye tho konsa haitho bhi last ku acha rhata karko vaisa mein bhi asal samajnani thum close hoye tho etha acha rhata karko.
+
+Suppose muje past mey janeka chance hai tho pakka phir school ke time⏱ mey jaako self motivate karlethum so😁 like jav sameera sey bathkaro karko😤 vaisa dhar nakko karko, haa mein dharthum lo thumarkan kaha mere vajise hurt hothe hunga karko vuskuch muje thum zara tho hurt huye naad kavaya tho bhi merach galti samajko sorry boldaltum.
+
+Malum thumna? Thumarse bathkarna start karko 1year hogya, asal sochna nii thum mere life mey one of the important part hothe karko.
+
+General hone sobke life mey bhoth memories rhate naa like person ku pakadko oo memories yaad rhate but muje oo memories pakadko thum yaad rhate abb person ku bulsikte lekin oo moments bhulte nai naa.
+Thum bolte rhate naa mein bhoth lucky thum mile so vusku karko yeah sahich lo but chadjanakko😏 hehehe acha lo aaj thumara bday vusku sahi boltum hai accept bhi kartum hai sorryyyy "oplethum hai" thumare language mey🤭😆.
+
+Acha lo serious abb😶 kabhi mere vupar padjako chirak hojana, Overacting karna, buildUp ah dena, iseke ch nai amaa zara socho paap acha bacha naa🤧🥲 kitta karko building hotum bolo🥺 abb tho sudaroo amaa🤦🏻‍♂ hehehe bhoth OA kartum hai ney😁 haa parvani lo🥱 bday naa extra wishes samaloo😌
+
+Okkkkkk once again "19th HAPPIEST BIRTHDAY" for my fav #BuildUP😜😆
+
+I have a promise for you may be Saba mera time change huyeja, naye persons aayeja, but thumara special place kabhi vaisach rhata merkan😄😉.
+
+Press on "Whistle🥳" 😁💥.`;
+
+    let index = 0;
+    const speed = 80;
+    const typedText = document.getElementById("typed-text");
+    const clickText = document.getElementById("click-text");
+
+    function typeWriter() {
+      if (index < message.length) {
+        typedText.textContent += message.charAt(index);
+        index++;
+        setTimeout(typeWriter, speed);
+      } else {
+        clickText.style.display = "block";
+      }
+    }
+
+    // Start typing effect
+    typeWriter();
+
+    // Click action
+    function goToBirthday() {
+      window.location.href = "index.html"; // Redirect to another page
+    }
+  </script>
+
+</body>
+</html>
