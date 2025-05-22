@@ -76,7 +76,7 @@ h1 span {
 
 /* Centered photo that stays for 5 seconds */
 .center-photo {
-    position: absolute;
+    position: fixed;
     top: 60% !important;
     left: 50% !important;
     transform: translate(-50%, -50%);
