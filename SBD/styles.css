@@ -16,16 +16,17 @@ canvas {
     z-index: -1; /* Keep behind everything */
 }
 
-/* Hide text initially */
+/* Keep text always centered */
 .content {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
     text-align: center;
     display: none; /* Initially hidden */
-    z-index: 20;
+    z-index: 1000;
+    pointer-events: none; /* Prevent interference */
 }
 
 h1 {
@@ -70,6 +71,7 @@ h1 span {
     transition: opacity 2s ease-in-out;
     z-index: 10;
     filter: brightness(0.5);
+    pointer-events: none;
 }
 
 /* Centered photo that stays for 5 seconds */
@@ -83,6 +85,7 @@ h1 span {
     height: 1900px;
     opacity: 0;
     transition: opacity 2s ease-in-out;
+    pointer-events: none;
 }
 
 /* Emoji zoom bounce animation */
