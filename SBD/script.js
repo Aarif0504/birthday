@@ -10,6 +10,7 @@ canvas.height = window.innerHeight;
 let fireworks = [];
 let explosionCount = 0;
 let musicPlayed = false;
+let photoLoopInterval; // NEW: to control random photo loop
 
 const photos = [
     "s-removebg-preview.png",
@@ -178,7 +179,7 @@ function startPhotoLoop() {
 
 function startRandomPhotoLoop() {
     let lastIndex = -1;
-    setInterval(() => {
+    photoLoopInterval = setInterval(() => {
         let randomIndex;
         do {
             randomIndex = Math.floor(Math.random() * photos.length);
@@ -222,6 +223,10 @@ function showFinalCenterPhoto() {
 
 music.onended = () => {
     showFinalCenterPhoto();
+
+    clearInterval(photoLoopInterval);
+
+    document.querySelectorAll(".photo:not(.center-photo)").forEach(img => img.remove());
 
     // Show the Replay button
     const restartButton = document.getElementById("restartButton");
